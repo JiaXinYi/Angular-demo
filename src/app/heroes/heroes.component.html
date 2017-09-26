@@ -1,0 +1,27 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+
+  <!-- <p *ngFor="let hero of heros">
+    {{hero}}
+  </p> -->
+  <!-- <div><label for="">id:</label>{{hero.id}}</div>
+  <div><label for="">name:</label>{{hero.name}}</div>
+  <div>
+    <label for="">name:</label>
+    <input type="text" [(ngModel)]="hero.name" placeholder="name">
+  </div> -->
+  <ul>
+    <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
+      {{hero.id}} {{hero.name}}
+    </li>
+  </ul>
+  <!-- 在等号的左边，是方括号围绕的hero属性，这表示它是属性绑定表达式的目标。 
+    我们要绑定到的目标属性必须是一个输入属性，否则Angular会拒绝绑定，并抛出一个错误。 -->
+  <!-- <app-hero-detail [selectedHero]="selectedHero"></app-hero-detail> -->
+  <div *ngIf="selectedHero">
+    <h2>
+      {{selectedHero.name | uppercase}} is my hero
+    </h2>
+    <button (click)="gotoDetail()">View Details</button>
+  </div>
+</div>
